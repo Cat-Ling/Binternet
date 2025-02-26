@@ -6,5 +6,11 @@ services:
       - ALL
     security_opt:
       - no-new-privileges:true
-    ports:
-     - '8080:8080'
+    expose:
+      - "8080"  # Expose the port internally to other containers in the nginx network
+    networks:
+      - nginx  # Use the nginx network you created
+
+networks:
+  nginx:
+    external: true  # Reference the external nginx network
