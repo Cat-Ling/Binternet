@@ -1,16 +1,17 @@
 services:
   binternet:
     container_name: binternet
+    restart: always
     image: ghcr.io/ahwxorg/binternet:latest
     cap_drop:
       - ALL
     security_opt:
       - no-new-privileges:true
     expose:
-      - "8080"  # Expose the port internally to other containers in the nginx network
+      - "8080"
     networks:
-      - nginx  # Use the nginx network you created
+      - nginx
 
 networks:
   nginx:
-    external: true  # Reference the external nginx network
+    external: true
