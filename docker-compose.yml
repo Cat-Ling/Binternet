@@ -3,10 +3,6 @@ services:
     container_name: binternet
     restart: always
     image: ghcr.io/ahwxorg/binternet:latest
-    cap_drop:
-      - ALL
-    security_opt:
-      - no-new-privileges:true
     expose:
       - "8080"
     networks:
